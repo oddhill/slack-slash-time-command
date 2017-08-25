@@ -1,9 +1,14 @@
 <?php
 // Routes
 
-$app->post('/time', function ($request, $response, $args) {
-  return $response->withJson(array(
-    'response_type' => 'in_channel',
-    'text' => 'TIME!',
-  ));
+$app->post('/', function (\Slim\Http\Request $request, \Slim\Http\Response $response, $args) {
+  $post = $request->getParsedBody();
+  $return = [
+    'text' => 'Hello',
+    'attachments' => [
+      ['text' => 'Bajs kiss'],
+    ]
+  ];
+
+  return $response->withJson($return);
 });
