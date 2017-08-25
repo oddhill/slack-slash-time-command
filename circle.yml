@@ -6,7 +6,7 @@ deployment:
   testing:
     branch: develop
     commands:
-      - rsync -az --force --delete -e 'ssh' ./ $SERVER_USER@$SERVER_NAME:$SERVER_PATH:
+      - rsync -az --force --delete --exclude-from=.rsyncignore -e 'ssh' ./ $SERVER_USER@$SERVER_NAME:$SERVER_PATH:
           environment:
             SERVER_USER: root
             SERVER_NAME: oddserver.se
